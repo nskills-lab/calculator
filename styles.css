@@ -1,0 +1,36 @@
+#container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: gray;
+    border-style: solid;
+    height: 500px;
+    width: 350px;
+    margin: auto;
+    grid-template-rows: 150px 300px;
+    grid-template-columns: auto;
+    grid-row-gap: 20px;
+}
+
+#display {
+    background-color: black;
+    height: 150px;
+    width: 320px;
+    justify-content: center;
+    margin: auto;
+}
+
+#buttons {
+    background-color: orange;
+    width: 320px;
+    margin: 10px;
+    justify-content: center;
+}
+
+#buttons>button {
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    width: 90px;
+    height: 40px;
+}
