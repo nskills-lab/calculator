@@ -2,6 +2,10 @@
     display: grid;
     justify-content: center;
     align-content: center;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-60%);
     background-color: gray;
     border-style: solid;
     height: 500px;
@@ -22,15 +26,13 @@
 
 #buttons {
     background-color: orange;
+    display: grid;
     width: 320px;
-    margin: 10px;
     justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #buttons>button {
     border-radius: 8px;
-    box-sizing: border-box;
-    width: 100%;
-    width: 90px;
-    height: 40px;
+  
 }
