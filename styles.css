@@ -1,3 +1,7 @@
+body {
+    font-family: orbitron;
+}
+
 #container {
     display: grid;
     justify-content: center;
@@ -6,28 +10,32 @@
     left: 50%;
     top: 40%;
     transform: translate(-50%, -60%);
-    background-color: grey;
+    background-color: rgb(56, 53, 53);
     height: 500px;
     width: 350px;
     margin: auto;
-    grid-template-rows: 150px 300px;
+    grid-template-rows: 120px 330px;
     grid-template-columns: auto;
     grid-row-gap: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 #display {
-    background-color: rgb(49, 44, 44);
-    height: 150px;
+    background-color: grey;
+    height: 120px;
     width: 320px;
-    justify-content: center;
+    justify-content: flex-end;
     margin: auto;
-    border-radius: 8px;
+    border-radius: 10px;
+    color: white;
+    overflow: hidden;
+    word-wrap: break-word
 }
 
 #buttons {
     display: grid;
     width: 320px;
+    font-size: 20px;
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -42,11 +50,16 @@
 }
 
 .numbers {
-    background-color: rgb(49, 44, 44);
+    background-color: grey;
     color: white;
 }
 
 button[value='zero'] {
     grid-column-start: 1;
     grid-column-end: 3;
+}
+
+button[value='clear'] {
+    grid-column-start: 2;
+    grid-column-end: 4;
 }
