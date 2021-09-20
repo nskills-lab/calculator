@@ -5,27 +5,27 @@
     position: absolute;
     left: 50%;
     top: 40%;
-    transform: translate(-50%,-60%);
-    background-color: gray;
-    border-style: solid;
+    transform: translate(-50%, -60%);
+    background-color: grey;
     height: 500px;
     width: 350px;
     margin: auto;
     grid-template-rows: 150px 300px;
     grid-template-columns: auto;
     grid-row-gap: 20px;
+    border-radius: 8px;
 }
 
 #display {
-    background-color: black;
+    background-color: rgb(49, 44, 44);
     height: 150px;
     width: 320px;
     justify-content: center;
     margin: auto;
+    border-radius: 8px;
 }
 
 #buttons {
-    background-color: orange;
     display: grid;
     width: 320px;
     justify-content: center;
@@ -34,5 +34,19 @@
 
 #buttons>button {
     border-radius: 8px;
-  
+}
+
+.operators {
+    background-color: orange;
+    color: white;
+}
+
+.numbers {
+    background-color: rgb(49, 44, 44);
+    color: white;
+}
+
+button[value='zero'] {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
