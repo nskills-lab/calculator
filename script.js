@@ -3,7 +3,8 @@ let currentOperand = "";
 let prevOperator = "";
 let currentOperator = "";
 let waitingForSecondOperand = true;
-let displayWindow = document.querySelector('#display');
+const displayWindow = document.querySelector('#display');
+
 
 
 function add(num1, num2) {
@@ -28,9 +29,6 @@ function divide(num1, num2) {
 function operate(operator, num1, num2) {
     let number1 = Number(num1);
     let number2 = Number(num2);
-    console.log(number1);
-    console.log(operator);
-    console.log(number2);
 
     switch (operator) {
         case 'add':
@@ -58,10 +56,7 @@ function operate(operator, num1, num2) {
 function updateDisplay(e) {
 
     let displayValue = this.textContent;
-    // if (operator === "equal" && (prevOperand === "" || prevOperand === "")) {
-    //     displayWindow.textContent = "ERROR";
-    // }
-
+    
     if (prevOperand === "" && prevOperator === "") {
         prevOperand += displayValue;
     } else if (prevOperand !== "" && prevOperator === "") {
@@ -81,15 +76,24 @@ function updateDisplay(e) {
 
 function handleCalculation(e) {
 
+    console.log(prevOperator);
+    
     if (prevOperator === "") {
         prevOperator = this.getAttribute('value');
     } else {
         currentOperator = this.getAttribute('value');
     }
-
-
-    displayWindow.textContent = '';
-    if (currentOperator != "" && currentOperand != "") {
+    
+    
+    displayWindow.textContent = ''; 
+    if (prevOperator !== "" && prevOperand === "" ) {
+        displayWindow.textContent = "ERROR";
+    }
+    else if (prevOperator === "equal" && currentOperand === "" ) {
+        displayWindow.textContent = "ERROR";
+    }
+    else if (currentOperator != "" && currentOperand != "") {
+        
         displayWindow.textContent = operate(prevOperator, prevOperand, currentOperand);
 
     }
