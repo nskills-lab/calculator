@@ -3,14 +3,11 @@ let currentOperand = "";
 let prevOperator = "";
 let currentOperator = "";
 let waitingForSecondOperand = true;
-let numbersArr = [];
 let displayWindow = document.querySelector('#display');
 
 
 function add(num1, num2) {
-    let result = num1 + num2;
-    console.log(result)
-    return result;
+    return num1 + num2;
 }
 
 function subtract(num1, num2) {
@@ -32,6 +29,7 @@ function operate(operator, num1, num2) {
     let number1 = Number(num1);
     let number2 = Number(num2);
     console.log(number1);
+    console.log(operator);
     console.log(number2);
 
     switch (operator) {
@@ -53,62 +51,59 @@ function operate(operator, num1, num2) {
     }
     currentOperand = "";
     prevOperator = "";
-    console.log(prevOperand);
     return prevOperand;
 
 }
 
-function display(e) {
+function updateDisplay(e) {
 
     let displayValue = this.textContent;
     // if (operator === "equal" && (prevOperand === "" || prevOperand === "")) {
     //     displayWindow.textContent = "ERROR";
     // }
 
-    if (displayWindow.textContent === '0') {
+    if (prevOperand === "" && prevOperator === "") {
+        prevOperand += displayValue;
+    } else if (prevOperand !== "" && prevOperator === "") {
+        prevOperand += displayValue;
+    } else if (prevOperator !== "") {
+        currentOperand += displayValue
+    }
+
+    if (displayWindow.textContent === '0' && displayValue !== '.') {
         displayWindow.textContent = displayValue;
     } else {
         displayWindow.textContent += displayValue;
     }
 
-    if (prevOperand === "" && currentOperator === "") {
-        prevOperand = displayWindow.textContent;
-    } else {
-        currentOperand = displayWindow.textContent
-    }
 
 }
 
-function handleOperation(e) {
+function handleCalculation(e) {
 
     if (prevOperator === "") {
         prevOperator = this.getAttribute('value');
-
     } else {
         currentOperator = this.getAttribute('value');
-
     }
 
 
-
     displayWindow.textContent = '';
-    console.log(currentOperand);
-    console.log(prevOperand);
-    if (currentOperator !== "" && currentOperand !== "") {
+    if (currentOperator != "" && currentOperand != "") {
         displayWindow.textContent = operate(prevOperator, prevOperand, currentOperand);
-        console.log(displayWindow.textContent);
 
     }
 
 
 }
+
 const numbers = document.querySelectorAll('.numbers');
 const operators = document.querySelectorAll('.operators');
 
 numbers.forEach((number) => {
-    number.addEventListener('click', display);
+    number.addEventListener('click', updateDisplay);
 })
 
 operators.forEach((operator) => {
-    operator.addEventListener('click', handleOperation);
+    operator.addEventListener('click', handleCalculation);
 });
