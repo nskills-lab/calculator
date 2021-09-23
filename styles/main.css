@@ -1,5 +1,21 @@
 body {
-    background-color: khaki;
+    background-color: blanchedalmond;
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    margin-top: 5%;
+    height: 30;
+    width: 100%;
+    bottom: 0;
+}
+
+.links {
+    color: black;
+    font-size: 15px;
+    font-family: orbitron;
+    font-weight: bold;
 }
 
 #container {

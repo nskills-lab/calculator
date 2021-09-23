@@ -60,12 +60,10 @@ function updateDisplay(e) {
         displayWindow.textContent = displayValue;
 
     } else if (!Number.isInteger(Number(displayWindow.textContent)) && displayValue === ".") {
-
         displayValue = "";
     } else {
         displayWindow.textContent += displayValue;
     }
-
 
     if (prevOperand === "" && prevOperator === "") {
         prevOperand += displayValue;
@@ -75,7 +73,6 @@ function updateDisplay(e) {
     } else if (prevOperator !== "") {
         currentOperand += displayValue;
     }
-
 
 }
 
