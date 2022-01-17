@@ -1,5 +1,17 @@
+:root {
+    --numbers-hue: 120;
+    --numbers-saturation: 0%;
+    --numbers-lightness: 45%;
+    --numbers-color: hsl(var(--numbers-hue), var(--numbers-saturation), var(--numbers-lightness));
+    --operators-hue: 40;
+    --operators-saturation: 100%;
+    --operators-lightness: 50%;
+    --operators-color: hsl(var(--operators-hue), var(--operators-saturation), var(--operators-lightness));
+}
+
 body {
     background-color: blanchedalmond;
+    margin: 0px;
 }
 
 footer {
@@ -69,12 +81,12 @@ footer {
 }
 
 .operators {
-    background-color: rgb(211, 139, 6);
+    background-color: var(--operators-color);
     color: white;
 }
 
 .numbers {
-    background-color: rgb(112, 112, 2);
+    background-color: var(--numbers-color);
     color: white;
 }
 
@@ -86,4 +98,18 @@ button[value='zero'] {
 button[value='clear'] {
     grid-column-start: 2;
     grid-column-end: 4;
+}
+
+.operators:hover,
+.operators:focus {
+    --operators-lightness: calc(var(--numbers-lightness) - 20%);
+    cursor: pointer;
+    background-color: hsl( var(--operators-hue), var(--operators-saturation), var(--operators-lightness));
+}
+
+.numbers:hover,
+.numbers:focus {
+    --numbers-lightness: calc(var(--numbers-lightness) - 10%);
+    cursor: pointer;
+    background-color: hsl( var(--numbers-hue), var(--numbers-saturation), var(--numbers-lightness));
 }
